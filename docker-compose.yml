@@ -2,8 +2,13 @@ version: '3.5'
 
 services:
   convert-pdf-to-image:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: wfelipe2011/tpe-convert-pdf:master
+    restart: unless-stopped
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 512M
     ports:
       - "7777:7777"
