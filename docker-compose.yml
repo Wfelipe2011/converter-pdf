@@ -12,7 +12,9 @@ services:
           memory: '1G'
     ports:
       - "7777:7777"
+    networks:
+      - proxy
 
 networks:
-  npm_public:
+  proxy:
     external: true
